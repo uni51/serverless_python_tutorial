@@ -3,20 +3,20 @@ import gspread
 import boto3
 import pytz
 from oauth2client.service_account import ServiceAccountCredentials
-# from slackclient import SlackClient
+from slackclient import SlackClient
 import os
 # import pdb
 
 
-# def notify_to_slack(message, channel='#kpi'):
-#     slack_token = os.environ.get('SERVERLESS_SLACK_BOT_API_TOKEN')
-#     sc = SlackClient(slack_token)
-#     sc.api_call(
-#         "chat.postMessage",
-#         channel=channel,
-#         as_user=True,
-#         text=message
-#     )
+def notify_to_slack(message, channel='#kpi'):
+    slack_token = os.environ.get('SERVERLESS_SLACK_BOT_API_TOKEN')
+    sc = SlackClient(slack_token)
+    sc.api_call(
+        "chat.postMessage",
+        channel=channel,
+        as_user=True,
+        text=message
+    )
 
 
 def get_kpi():
@@ -55,9 +55,8 @@ def run_bot():
     entry_num = get_kpi()
     update_gas(today, entry_num)
 
-    # message = '{}\n記事数:{}\nhttps://docs.google.com/spreadsheets/d/1Loagi0Bxr5OL4SdW_KkpKYtat4jIFYV-PTVU5o8cjZQ'.format(
-    #     today, entry_num)
-    # notify_to_slack(message)
+    message = '{}\n記事数:{}\nhttps://docs.google.com/spreadsheets/d/1ew4Cuf4eqw3DBBaCgFB2BUkXapuiDQNNUtke7GOxU-c'.format(today, entry_num)
+    notify_to_slack(message)
 
 
 if __name__ == "__main__":

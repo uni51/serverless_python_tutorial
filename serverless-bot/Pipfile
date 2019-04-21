@@ -11,6 +11,7 @@ pytz = "*"
 gspread = "*"
 oauth2client = "*"
 zappa = "*"
+slackclient = "*"
 
 [requires]
 python_version = "3.6"
