@@ -11,7 +11,7 @@ class Entry(Model):
         region = 'ap-northeast-1'
         if is_production():
             aws_access_key_id = os.environ.get('SERVERLESS_AWS_ACCESS_KEY_ID')
-            aws_secret_access_key = os.environ.get('SERVERLESS_AWS_SECRERT_KEY')
+            aws_secret_access_key = os.environ.get('SERVERLESS_AWS_SECRET_KEY')
         else:
             aws_access_key_id = 'AWS_ACEESS_KEY_ID'
             aws_secret_access_key = 'AWS_SECRET_ACCESS_KEY'
