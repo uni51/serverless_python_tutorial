@@ -12,7 +12,7 @@ def login():
         elif request.form['password'] != app.config['PASSWORD']:
             flash('パスワードが異なります')
         else:
-            login_user(User("request.form['username']"))
+            login_user(User("request.form['username']")) # ログインセッションを付与
             flash('ログインしました')
             return redirect(url_for('show_entries'))
     return render_template('login.html')
